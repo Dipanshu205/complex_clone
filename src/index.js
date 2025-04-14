@@ -6,14 +6,12 @@ dotenv.config({
     path: './env'
 });
 
+app.get('/', function(req,res){
+    res.json("hello")
+})
 
 connectDB()
-.then(() => {
-    app.listen(process.env.PORT || 8000, () => {
-        console.log(`server is running at port : ${process.env.PORT}`);
-    })
-})
-.catch((error) => {
-    console.log("connection failed",error)
+app.listen(process.env.PORT || 8000, () => {
+    console.log(`server is running at port : ${process.env.PORT}`);
 })
 
